@@ -2,7 +2,7 @@
   <div class="m-user">
    <template v-if="user">
        欢迎你,<sapn class="username">{{user}}</sapn>
-       [<nuxt-link to="exit">退出</nuxt-link>]
+       [<nuxt-link to="/exit">退出</nuxt-link>]
    </template>
 
    <template v-else>
@@ -22,7 +22,13 @@ export default {
         return{
             user:''
         }
+    },
+    async mounted(){
+    const {status,data:{user}} = await this.$axios.get('/users/getUser')
+    if(status===200){
+      this.user=user
     }
+  }
 }
 </script>
 

@@ -1,3 +1,4 @@
+const pkg = require('./package')
 module.exports = {
     mode: 'universal',
     /*
@@ -39,7 +40,12 @@ module.exports = {
     /*
      ** Nuxt.js modules
      */
-    modules: [],
+    modules: [
+        `@nuxtjs/axios`
+    ],
+    axios: {
+
+    },
     /*
      ** Build configuration
      */
